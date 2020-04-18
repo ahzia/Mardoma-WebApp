@@ -1,0 +1,33 @@
+﻿<br />
+    <div class="container row p-0 m-0">
+        <div class="col-6">
+            <h2 class="text-info">Documents List</h2>
+        </div>
+        <div class="col-3 offset-3">
+            <a asp-action="Upsert" asp-controller="Document" class="btn btn-info form-control text-white">
+                Add New Document
+            </a>
+        </div>
+        <div class="col-12 border p-3">
+            <!-- DT_load is from javascript API-->
+            <table id="DT_load" class="table table-striped table-bordered" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Year</th>
+                        <th>Grant</th>
+                        <th>Catagory</th>
+                        <th>Sub Catagory</th>
+                        <th>About</th>
+                        <th>other</th>
+                        <th>Region</th>
+                        <th>fileName</th>
+                        <th></th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+
+    @section Scripts{
+        <script src="~/js/DocumentList.js"></script>
+    }
