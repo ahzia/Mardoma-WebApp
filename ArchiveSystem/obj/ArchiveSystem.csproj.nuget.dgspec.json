@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\USER\\Source\\Repos\\ahzia\\ArchiveSystem\\ArchiveSystem\\ArchiveSystem.csproj": {}
+    "C:\\Users\\USER\\source\\repos\\Mardomak\\Archive System\\Mardoma-WebApp\\ArchiveSystem\\ArchiveSystem.csproj": {}
   },
   "projects": {
-    "C:\\Users\\USER\\Source\\Repos\\ahzia\\ArchiveSystem\\ArchiveSystem\\ArchiveSystem.csproj": {
+    "C:\\Users\\USER\\source\\repos\\Mardomak\\Archive System\\Mardoma-WebApp\\ArchiveSystem\\ArchiveSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\Source\\Repos\\ahzia\\ArchiveSystem\\ArchiveSystem\\ArchiveSystem.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\source\\repos\\Mardomak\\Archive System\\Mardoma-WebApp\\ArchiveSystem\\ArchiveSystem.csproj",
         "projectName": "ArchiveSystem",
-        "projectPath": "C:\\Users\\USER\\Source\\Repos\\ahzia\\ArchiveSystem\\ArchiveSystem\\ArchiveSystem.csproj",
+        "projectPath": "C:\\Users\\USER\\source\\repos\\Mardomak\\Archive System\\Mardoma-WebApp\\ArchiveSystem\\ArchiveSystem.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\Source\\Repos\\ahzia\\ArchiveSystem\\ArchiveSystem\\obj\\",
+        "outputPath": "C:\\Users\\USER\\source\\repos\\Mardomak\\Archive System\\Mardoma-WebApp\\ArchiveSystem\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",

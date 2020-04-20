@@ -14,20 +14,20 @@ namespace ArchiveSystem.Models
         [Required]
         public int Year { get; set; }
         [Required]
-        public String Grant { get; set; }
+        public String Topic { get; set; }
         //Studies or Project Document
         [Required]
-        public String Catagory { get; set; }
+        public String Organization { get; set; }
         //proposal, PMF ...
         [Required]
-        public String SubCatagory { get; set; }
+        public String Province { get; set; }
         public String About { get; set; }
         //to store the file name
         [Required]
         public String file { get; set; }
         //new changeses
         public String fileName { get; set; }
-        public String Region { get; set; }
+        public String Where { get; set; }
         public String other { get; set; }     
     }
 }

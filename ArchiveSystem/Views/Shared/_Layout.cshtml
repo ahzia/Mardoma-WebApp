@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - ArchiveSystem</title>
+    <title>@ViewData["Title"] - Mardomak WebApp</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" />
@@ -29,7 +29,9 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Document" asp-action="Index">Documents list</a>
+                            <a class="nav-link text-dark" asp-action="Upsert" asp-controller="Document">
+                                Report Curroption
+                            </a>
                         </li>
 
                         @if (signInManger.IsSignedIn(User))
@@ -38,12 +40,16 @@
                                 <a class="nav-link text-dark" href="/administration/ListRoles">Roles Administration</a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Document" asp-action="Index">Documents list</a>
+                            </li>
+                            <li class="nav-item">
                                 <form method="post" asp-action="logout" asp-controller="Account">
                                     <button type="submit" class="nav-link btn btn-link py-0" style="width:auto">
                                         Logout @User.Identity.Name
                                     </button>
                                 </form>
                             </li>
+
                         }
                         else
                         {

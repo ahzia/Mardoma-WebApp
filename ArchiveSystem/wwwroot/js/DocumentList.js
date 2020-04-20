@@ -13,12 +13,12 @@ function loadDataTable() {
         },
         "columns": [
             { "data": "year", "width": "2%" },
-            { "data": "grant", "width": "8%" },
-            { "data": "catagory","width": "7%" },
-            { "data": "subCatagory", "width": "8%" },
+            { "data": "topic", "width": "8%" },
+            { "data": "organization","width": "7%" },
+            { "data": "province", "width": "8%" },
             { "data": "about", "width": "8%" },
             { "data": "other", "width": "7%" },
-            { "data": "region", "width": "8%" },
+            { "data": "where", "width": "8%" },
             { "data": "fileName", "width": "7%" },
             {
                 "data": "id",

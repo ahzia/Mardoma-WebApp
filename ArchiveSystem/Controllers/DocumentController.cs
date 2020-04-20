@@ -13,7 +13,7 @@ using MimeKit;
 
 namespace ArchiveSystem.Controllers
 {
-    [Authorize]
+    
     public class DocumentController : Controller
     {
         private readonly ApplicationDbContext _db;
@@ -55,12 +55,12 @@ namespace ArchiveSystem.Controllers
             {
                 Id=doc.Id,
                 Year = doc.Year,
-                Grant = doc.Grant,
-                Catagory = doc.Catagory,
-                SubCatagory = doc.SubCatagory,
+                Topic = doc.Topic,
+                Organization = doc.Organization,
+                Province = doc.Province,
                 About = doc.About,
                 other=doc.other,
-                Region=doc.Region
+                Where=doc.Where
             };
             return View(Document);
         }
@@ -86,13 +86,13 @@ namespace ArchiveSystem.Controllers
                     Document doc = new Document
                     {
                         Year = Document.Year,
-                        Grant = Document.Grant,
-                        Catagory = Document.Catagory,
-                        SubCatagory = Document.SubCatagory,
+                        Topic = Document.Topic,
+                        Organization = Document.Organization,
+                        Province = Document.Province,
                         About=Document.About,
                         file=uniqueFileName,
                         other=Document.other,
-                        Region=Document.Region,
+                        Where=Document.Where,
                         fileName=Document.file.FileName
                     };
                     _db.Documents.Add(doc);
@@ -121,12 +121,12 @@ namespace ArchiveSystem.Controllers
                     }
 
                     doc.Year = Document.Year;
-                    doc.Grant = Document.Grant;
-                    doc.Catagory = Document.Catagory;
-                    doc.SubCatagory = Document.SubCatagory;
+                    doc.Topic = Document.Topic;
+                    doc.Organization = Document.Organization;
+                    doc.Province = Document.Province;
                     doc.About = Document.About;
                     doc.file = uniqueFileName;
-                    doc.Region = Document.Region;
+                    doc.Where = Document.Where;
                     doc.other = Document.other;
                     doc.fileName = Document.file.FileName;                    
                     //edit up

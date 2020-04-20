@@ -3,6 +3,7 @@
 <h2 class="text-info">@(Model.Id != 0 ? "Edit" : "Create") Document</h2>
 <br />
 <div class="border container" style="padding:30px;">
+    <p>You can Report curroption related cases by filling out this form,we will send the document to autorties,media and civil socities;If you want to be informed about invistgation process create an anonymous email address and write it in the about part of the form.</p>
     <form enctype="multipart/form-data" method="post">
         @if (Model.Id != 0)
         {
@@ -20,43 +21,45 @@
         </div>
         <div class="form-group row">
             <div class="col-3">
-                <label asp-for="Grant"></label>
+                <label asp-for="Topic"></label>
             </div>
             <div class="col-6">
-                <input asp-for="Grant" class="form-control" />
-                <span asp-validation-for="Grant" class="text-danger"></span>
+                <input asp-for="Topic" class="form-control" />
+                <span asp-validation-for="Topic" class="text-danger"></span>
             </div>
         </div>
         <div class="form-group row">
             <div class="col-3">
-                <label asp-for="Catagory"></label>
+                <label asp-for="Organization"></label>
             </div>
             <div class="col-6">
-                <select asp-for="Catagory" class="form-control" onchange="catagoryChange(this);">
-                    <option value="Document">Document</option>
-                    <option value="Studies">Studies</option>
+                <select asp-for="Organization" class="form-control">
+                    <option value="Goverment">Goverment</option>
+                    <option value="Private">Private Sector</option>
+                    <option value="NGO">Non Profit Organizations</option>
+
                 </select>
-                <!--<input asp-for="Catagory" class="form-control" />-->
-                <span asp-validation-for="Catagory" class="text-danger"></span>
+                <!--<input asp-for="Organization" class="form-control" />-->
+                <span asp-validation-for="Organization" class="text-danger"></span>
             </div>
         </div>
         <div class="form-group row">
             <div class="col-3">
-                <label asp-for="SubCatagory"></label>
+                <label asp-for="Province"></label>
             </div>
             <div class="col-6">
-                <select asp-for="SubCatagory" class="form-control" id="subcatagory" onchange="subCatagoryChange(this);">
+                <select asp-for="Province" class="form-control" id="Province">
                     <!--["proposed", "PMF", "PIP","Budget","Contract"];-->
-                    <option>proposal</option>
-                    <option>PMF</option>
-                    <option>PIP</option>
-                    <option>Budget</option>
-                    <option>Contract</option>
+                    <option>Kabul</option>
+                    <option>Mazar</option>
+                    <option>Herat</option>
+                    <option>Kandahar</option>
+                    <option>Jelal aabad</option>
                 </select>
                 <!--
-            <input asp-for="SubCatagory" class="form-control" />
+            <input asp-for="Province" class="form-control" />
             -->
-                <span asp-validation-for="SubCatagory" class="text-danger"></span>
+                <span asp-validation-for="Province" class="text-danger"></span>
             </div>
         </div>
         <div class="form-group row">
@@ -88,33 +91,22 @@
         </div>
         <div class="form-group row">
             <div class="col-3">
-                <label asp-for="Region"></label>
+                <label asp-for="Where"></label>
             </div>
             <div class="col-6">
-                <input asp-for="Region" class="form-control" />
-                <span asp-validation-for="Region" class="text-danger"></span>
+                <input asp-for="Where" class="form-control" />
+                <span asp-validation-for="Where" class="text-danger"></span>
             </div>
         </div>
-        <div class="form-group row" style="visibility:hidden" id="other">
+        <div class="form-group row">
             <div class="col-3">
                 <label asp-for="other"></label>
             </div>
             <div class="col-6">
-                <select asp-for="other" class="form-control">
-
-                    <option value=""></option>
-                    <option value="TOR/Concept">TOR/Concept</option>
-                    <option value="Data Collection Tools">Data Collection Tools</option>
-                    <option value="Dataset">Dataset</option>
-                    <option value="Report">Report</option>
-                    <option value="Presentation">Presentation</option>
-                    <option value="Other">Other</option>
-                </select>
-                <!--<input asp-for="Catagory" class="form-control" />-->
+                <input asp-for="other" class="form-control" />
                 <span asp-validation-for="other" class="text-danger"></span>
             </div>
         </div>
-
         <br />
         <div class="form-group row">
             <div class="col-3 offset-3">
@@ -139,9 +131,17 @@
 
                 });
                 //<![CDATA[
-                var catagoryLists = new Array(2)
-                catagoryLists["Document"] = ["proposal", "PMF", "PIP", "Budget", "Contract"];
-                catagoryLists["Studies"] = ["Baseline", "Endline", "Evaluation", "Monitoring", "Research", "Other"];
+                var OrganizationLists = new Array(2)
+                OrganizationLists["Goverment"] = ["Kabul",
+                    "Mazar",
+                    "Herat",
+                    "Kandahar",
+                    "Jelal aabad"];
+                OrganizationLists["Private"] = ["Kabul",
+                    "Mazar",
+                    "Herat",
+                    "Kandahar",
+                    "Jelal aabad"];
 
                 /*base line need a new sub:
                  TOR/Concept
@@ -151,21 +151,21 @@
                  Other
                  */
                 //store the file name
-                //a new part:Region
+                //a new part:Where
 
-                /* CatagoryChange() is called from the onchange event of a select element.
+                /* OrganizationChange() is called from the onchange event of a select element.
                 * param selectObj - the select object which fired the on change event.
                 */
-                function catagoryChange(selectObj) {
+                function OrganizationChange(selectObj) {
                     // get the index of the selected option
                     var idx = selectObj.selectedIndex;
                     // get the value of the selected option
                     var which = selectObj.options[idx].value;
                     // use the selected option value to retrieve the list of items from the countryLists array
-                    cList = catagoryLists[which];
+                    cList = OrganizationLists[which];
                     // get the country select element via its known id
-                    var cSelect = document.getElementById("subcatagory");
-                    // remove the current options from the subcatagory select
+                    var cSelect = document.getElementById("Province");
+                    // remove the current options from the Province select
                     var len = cSelect.options.length;
                     while (cSelect.options.length > 0) {
                         cSelect.remove(0);
@@ -184,17 +184,7 @@
                             cSelect.appendChild(newOption);
                         }
                     }
-                    var ddl = document.getElementById("subcatagory");
-                    var selectedValue = ddl.options[ddl.selectedIndex].value;
-                    if (selectedValue == "Baseline") {
-                        document.getElementById('other').style.visibility = 'visible';
-                    }
-                    else {
-                        document.getElementById('other').style.visibility = 'hidden';
-                    }
-                }
-                function subCatagoryChange(selectObj) {
-                    var ddl = document.getElementById("subcatagory");
+                    var ddl = document.getElementById("Province");
                     var selectedValue = ddl.options[ddl.selectedIndex].value;
                     if (selectedValue == "Baseline") {
                         document.getElementById('other').style.visibility = 'visible';
@@ -204,8 +194,19 @@
                     }
                 }
 
-                                        //]]>
-                                        //<![CDATA[
+                function ProvinceChange(selectObj) {
+                    var ddl = document.getElementById("Province");
+                    var selectedValue = ddl.options[ddl.selectedIndex].value;
+                    if (selectedValue == "Baseline") {
+                        document.getElementById('other').style.visibility = 'visible';
+                    }
+                    else {
+                        document.getElementById('other').style.visibility = 'hidden';
+                    }
+                }
+
+                                                    //]]>
+                                                    //<![CDATA[
                 /*base line need a new sub:
                  TOR/Concept
                  Data Collection Tools
@@ -213,13 +214,13 @@
                  Presentation
                  Other
                  */
-                                        //store the file name
-                                        //a new part:Region
+                                                    //store the file name
+                                                    //a new part:Where
 
-                /* CatagoryChange() is called from the onchange event of a select element.
+                /* OrganizationChange() is called from the onchange event of a select element.
                 * param selectObj - the select object which fired the on change event.
                 */
-                                                                    //]]>
+                                                                                //]]>
             </script>
             <!--End of JavaScript-->
         }
